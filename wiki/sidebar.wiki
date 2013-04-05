@@ -3,5 +3,5 @@
  * [Installation Installation]
  * [Usage]
  * Scripts
-  * [ScriptOne]
-  * [ScriptTwo]
+  * [TeamMakerScript TeamMaker]
+  * [EchoScript Echo]
