@@ -1,13 +1,6 @@
 #summary Known limitations
 
-= Introduction =
-
-Add your content here.
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+ * Unable to join servers with certrequired=True
+ * Only one Token (i.e. password) can be sent
+ * If the username is in use, mumblebot dies
+ * non-ascii characters aren't handled well
