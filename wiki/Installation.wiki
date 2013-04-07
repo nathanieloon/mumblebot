@@ -3,11 +3,10 @@
 =Table Of Contents=
 <wiki:toc max_depth="1" />
 
-= Introduction =
-
-There is no one correct way to install mumblebot.  The following guidelines simply put files where mumblebot expects them by default.  
 
 = TL;DR =
+There is no one correct way to install mumblebot.  The following guidelines simply put files where mumblebot expects them by default.  
+
 <code language="sh">
 cp mumblebot /usr/local/bin
 chmod u+x /usr/local/bin/mumblebot
