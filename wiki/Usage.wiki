@@ -1,13 +1,88 @@
-#summary One-sentence summary of this page.
+#summary How to use mumblebot
+#labels Featured
 
-= Introduction =
+=Table Of Contents=
+<wiki:toc max_depth="1" />
 
-Add your content here.
+= Usage Statement =
+<pre>usage: mumblebot [-h] [-c CONFIGFILE] [-s SERVER] [-p PORT] [--srcip SRCIP]
+                 [--srcport SRCPORT] [--timeout TIMEOUT] [--syslog] [-d]
+                 [-u USERNAME] [--password PASSWORD] [--printusers [TIMEOUT]]
+                 [--printchannels [TIMEOUT]] [--trigger TRIGGER]
+                 [--scriptwd SCRIPTWD] [--scriptdir SCRIPTDIR]
+                 [--channel CHANNEL]
+
+Extensible bot for Mumble
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -c CONFIGFILE, --config CONFIGFILE
+                        Specifies the config file. Arguments given on the
+                        command line take precedence over the config file. If
+                        this is not specified, the config file will be looked
+                        for in the following locations: ., /home/stuart, /etc,
+                        /usr/local/etc. Every long option which may specified
+                        on the command line may be specified in the config
+                        file, separated by its value by whitespace.
+  -s SERVER, --server SERVER
+                        The mumble server to which to connect.
+  -p PORT, --port PORT  The port to which to connect on the mumble server.
+  --srcip SRCIP         The IP address from which to connect. The default is
+                        usually fine.
+  --srcport SRCPORT     The port from which to connect. The default is usually
+                        fine.
+  --timeout TIMEOUT     The amout of time to wait for a connection to be
+                        established. The default (10s) is usually fine.
+  --syslog              Log to syslog instead of standard in/out/error.
+  -d, --debug           Log messages useful for debugging.
+  -u USERNAME, --username USERNAME
+                        The username to use on the server.
+  --password PASSWORD   An optional password to send to the server.
+  --printusers [TIMEOUT]
+                        Print a list of users on the server. An optional time
+                        may be specified to limit how long to wait for new
+                        users to appear. The default (1s) is usually fine.
+  --printchannels [TIMEOUT]
+                        Print a list of channels on the server. An optional
+                        time may be specified to limit how long to wait for
+                        new channel data to become available. The default (1s)
+                        is usually fine.
+  --trigger TRIGGER     If a message starts with this character, it'll send
+                        the message to the script named the first word in the
+                        message (or silently ignore it if there's no script).
+                        The default (an exclamation mark) is usually fine.
+  --scriptwd SCRIPTWD   The working directory for the scripts. The default (/)
+                        is usually fine.
+  --scriptdir SCRIPTDIR
+                        The directory containing the scripts to run. The
+                        default (/etc/mumblebot.d) is usually fine. This is
+                        relative to SCRIPTWD if not absolute.
+  --channel CHANNEL     The channel to join. This may either be given as a
+                        Unix-style path (/rootchannel/channel/subchannel) or a
+                        channel ID number (which may be retrieved with
+                        printchannels). The default is the root channel.</pre>
 
 
-= Details =
+= Scripts =
+Mumblebot takes the following actions when it sees a message that starts with its trigger (`!` by default):
+ # Mumblebot splits the message into the name of the script and the message to be sent to the script.  The message is split at the first block of whitespace.
+ # If the script isn't already running, mumblebot starts the script.
+ # Mumblebot sends a message to the script in the following format: `[uN:cN]\t<sender_name>\n<message>\n`. Where uN is a literal `u` followed by the sender's session ID and cN is a literal `c` followed by the sender's channel ID.  The message may be an empty string.  See the [https://code.google.com/p/mumblebot/source/browse/trunk/src/mumblebot.d/echo echo script source] for an example on how to parse this.
+ # When the script sends output, mumblebot sends it to its channel.
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Scripts communicate with mumblebot via their stdin and stdout.  Anything printed to stderr is redirected to stdout (handy for scripts that crash).
+
+From a user's point of view, they send a command, prepended by the trigger character to mumble bot (or mumblebot's channel), plus whatever other information the command (i.e. script) needs.  For example, to echo text back to the channel, a user might send `!echo I am testing mumblebot.`
+
+= --printusers and --printchannels =
+If either or both of these are given, instead of executing normally, mumblebot will join the server, get a list of users and/or channels, print them to stdout or send them to syslog, and exit.
+
+Channels will be printed in the following format
+{{{
+<I>YYYY-MM-DD HH:MM:SS.nnnnnn: [cN]\t<channel_name>
+}}}
+Users are printed in a similar format:
+{{{
+<I>YYYY-MM-DD HH:MM:SS.nnnnnn: [uN:cN]\t<user_name>
+}}}
+As in the messages sent to scripts, `uN` and `cN` are a literal `u` and `c` followed by a session ID and channel ID, respectively.
