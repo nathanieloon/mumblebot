@@ -4,8 +4,8 @@
  * [Configuration]
  * [Usage]
  * Scripts
-  * [TeamMakerScript TeamMaker]
   * [EchoScript Echo]
+  * [TeamMakerScript TeamMaker]
  * [README]
  * [TODO Planned features]
  * [BUGS Known limitations]
