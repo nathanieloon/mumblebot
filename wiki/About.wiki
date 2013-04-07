@@ -4,12 +4,13 @@
 <wiki:toc max_depth="1" />
 = Introduction =
 Mumblebot is an attempt to create a bot that will sit on a Mumble server and respond to messages, much like an IRC bot.  The original motivation to write mumblebot came from a discussion on how to split <I>N</I> players into <I>M</I> teams in somewhat of a random fashion, without having to trust someone's coin flipping or dice rolling or whatever.  The problem was solved with the [TeamMakerScript TeamMaker script].
+
 = QuickStart =
 Either unpack the [http://google.com latest tarball TODO: link] or [http://google.com checkout the source TODO: link].  In the directory it creates run the following command to connect mumblebot to your server:
 {{{
 ./mumblebot  --server=<your server> --scriptdir=`pwd`/scripts 
 }}}
-You'll have to replace <your server> with your server's IP address or hostname, of course.
+You'll have to replace `<your server>` with your server's IP address or hostname, of course.
 
 If all went as planned, you should find a new user on your server named mumblebot.  If something went wrong, have a look at mumblebot's options:
 {{{
