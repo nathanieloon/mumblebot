@@ -14,7 +14,8 @@ chmod u+x /usr/local/bin/mumblebot
 cp -r ./mumblebot.d /etc
 chmod u+x /etc/mumblebot.d/*
 mkdir -p $(python -m site --user-site)
-cp ./Mumble_pb2.py $(python -m site --user-site)</code>
+cp ./Mumble_pb2.py $(python -m site --user-site)
+cp mumblebot.conf /etc</code>
 
 = Dependencies =
 
