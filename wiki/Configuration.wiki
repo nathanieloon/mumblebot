@@ -7,6 +7,12 @@
 
 Mumblebot may be configured straight from the command line or with a configuration file.  Any option specified on the command line may be specified in the config and vice versa.  Options specified on the command line take precedence over options specified in the config file.  See [Usage] or run `mumblebot -h` for a concise list of configurable options.
 
+The configuration file may be specified using `--config` on the command line, for example:
+{{{
+mumblebot --config /etc/mumblebot.conf
+}}}
+See [https://code.google.com/p/mumblebot/wiki/Installation#The_config_file the config file section of the Installation wiki page] for more details.
+
 A sample config files ships with mumblebot.
 
 = File Format = 
