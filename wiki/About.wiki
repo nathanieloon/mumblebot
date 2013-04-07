@@ -11,7 +11,7 @@ Mumblebot is an attempt to create a bot that will sit on a Mumble server and res
 = QuickStart =
 Install [http://code.google.com/p/protobuf/ protobuf] if you don't already have it installed.
 
-Either unpack the [http://google.com latest tarball TODO: link] or [http://google.com checkout the source TODO: link].  In the directory it creates run the following command to connect mumblebot to your server:
+Either unpack the [http://google.com latest tarball TODO: link] or [https://code.google.com/p/mumblebot/source/checkout checkout the source].  In the directory it creates run the following command to connect mumblebot to your server:
 {{{
 ./mumblebot  --server=<your server> --scriptdir=`pwd`/scripts 
 }}}
