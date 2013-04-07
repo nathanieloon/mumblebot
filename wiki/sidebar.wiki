@@ -7,3 +7,5 @@
   * [TeamMakerScript TeamMaker]
   * [EchoScript Echo]
  * [README]
+ * [TODO Planned features]
+ * [BUGS Known limitations]
