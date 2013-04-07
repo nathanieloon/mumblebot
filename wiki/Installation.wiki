@@ -41,7 +41,7 @@ A config file isn't strictly necessary, but mumblebot will search for a config f
  * The user's home directory
  * `/etc`
  * `/usr/local/etc`
-The config file's name can be overridden on the command line, as can the full path to the file.
+The config file's name can be overridden on the command line, as can the full path to the file.  See [Configuration] for more details about this file.
 
 = Protobuf =
 
