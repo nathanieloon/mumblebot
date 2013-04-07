@@ -1,6 +1,7 @@
 #summary Navigation Sidebar
  * [About]
- * [Installation Installation]
+ * [Installation]
+ * [Configuration]
  * [Usage]
  * Scripts
   * [TeamMakerScript TeamMaker]
