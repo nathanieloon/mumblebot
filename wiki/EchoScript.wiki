@@ -1,13 +1,12 @@
-#summary One-sentence summary of this page.
+#summary Documentation for the script echo
 
-= Introduction =
+=Table Of Contents=
+<wiki:toc max_depth="1" />
 
-Add your content here.
+= About =
+The purpose of echo is to provide an example of how to read messages from mumblebot in a script.  If a user sends it a message, it'll send the message right back
 
+= Usage =
+`!echo message`
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+`message` will be sent back to the channel
