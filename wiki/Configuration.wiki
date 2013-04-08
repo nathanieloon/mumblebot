@@ -93,6 +93,8 @@ Default: no password
 
 == certfile ==
 An SSL certificate to send to the server.  If the private key is stored in the certificate, `keyfile` is not necessary.
+
+A self-signed certificate and key may be generated with openssl `req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mysitename.key -out mysitename.crt`.
 {{{
 certfile /etc/mumblebot.d/mumblebot.cert
 }}}
@@ -100,6 +102,8 @@ Default: no certificate
 
 == keyfile ==
 The private key which corresponds to `certfile`.  If the key is stored in the file given by `certfile`, this is not necessary.
+
+A self-signed certificate and key may be generated with openssl `req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mysitename.key -out mysitename.crt`.
 {{{
 keyfile: /etc/mumblebot.d/mumblebot.key
 }}}

@@ -7,7 +7,8 @@
 = Usage Statement =
 <pre>usage: mumblebot [-h] [-c CONFIGFILE] [-s SERVER] [-p PORT] [--srcip SRCIP]
                  [--srcport SRCPORT] [--timeout TIMEOUT] [--syslog] [-d]
-                 [-u USERNAME] [--password PASSWORD] [--printusers [TIMEOUT]]
+                 [-u USERNAME] [--password PASSWORD] [--certfile CERTFILE]
+                 [--keyfile KEYFILE] [--printusers [TIMEOUT]]
                  [--printchannels [TIMEOUT]] [--trigger TRIGGER]
                  [--scriptwd SCRIPTWD] [--scriptdir SCRIPTDIR]
                  [--channel CHANNEL]
@@ -33,11 +34,17 @@ optional arguments:
                         fine.
   --timeout TIMEOUT     The amout of time to wait for a connection to be
                         established. The default (10s) is usually fine.
-  --syslog              Log to syslog instead of standard in/out/error.
+  --syslog              Log to syslog instead of standard out/error.
   -d, --debug           Log messages useful for debugging.
   -u USERNAME, --username USERNAME
                         The username to use on the server.
   --password PASSWORD   An optional password to send to the server.
+  --certfile CERTFILE   An optional ssl certificate to send to the server. If
+                        this includes the key as well, KEYFILE need not be
+                        specified.
+  --keyfile KEYFILE     An optional ssl key that matches the CERTFILE. If the
+                        key is included in the CERTFILE, this need not be
+                        specified.
   --printusers [TIMEOUT]
                         Print a list of users on the server. An optional time
                         may be specified to limit how long to wait for new
