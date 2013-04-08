@@ -9,12 +9,10 @@ This is taken from the #TODO: lines in the code.
  * Handle non-ascii characters
  * multiple tokens
  * Add numbers (or something) to username when username is already in use
- * add support for keyfile
  * work on a better way to receive error messages from scripts
  * Implement tokens
  * Timeout on rx of auth message if !mumble server
  * Set list of entities to which to send: sender.add_id/chan
- * Auth with certificate
  * search for zero-length triggered messages
  * send all messages to a specified script
  * error checking

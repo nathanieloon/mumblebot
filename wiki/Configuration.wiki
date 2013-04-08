@@ -91,6 +91,20 @@ password supersecretpassword
 }}}
 Default: no password
 
+== certfile ==
+An SSL certificate to send to the server.  If the private key is stored in the certificate, `keyfile` is not necessary.
+{{{
+certfile /etc/mumblebot.d/mumblebot.cert
+}}}
+Default: no certificate
+
+== keyfile ==
+The private key which corresponds to `certfile`.  If the key is stored in the file given by `certfile`, this is not necessary.
+{{{
+keyfile: /etc/mumblebot.d/mumblebot.key
+}}}
+Default: no key
+
 == printusers ==
 Print a list of users on the server, disconnect, and exit.  Specify a timeout (in seconds) to wait for new user data to become available.  This may be run with `printchannels`.  If `syslog True` is set, the list of users will be sent to syslog.  Users are printed with their session ID and the channel they're in in square brackets before their username.
 {{{
